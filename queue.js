@@ -32,6 +32,15 @@ module.exports = {
     addToRepeat: function (queue) {
         RepeatMode[queue] = true;
     },
+    shuffleQueue: function (queue) {
+        queue = Queues[queue];
+        for (let i = queue.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * i)
+            const temp = queue[i]
+            queue[i] = queue[j]
+            queue[j] = temp
+        }
+    },
     getQueue: function (queue) {
         return Queues[queue];
     },
